@@ -1,7 +1,7 @@
 <?php
-$dbuser = "root";
-$dbpass = "cantech@123";
-$host = "mysql";
+$dbuser = "mysql";
+$dbpass = "fYtnhTxyk2uoNurJU00hCCiOzqfNjDPHcyJaAKbsB9INqSjd9YwQhdEJUleb9kEr";
+$host = "mc0wco404s4wwck44osgkwko";  // MySQL container name
 $db = "hostel";
 
 $mysqli = new mysqli($host, $dbuser, $dbpass, $db);
