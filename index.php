@@ -21,9 +21,16 @@ $stmt=$mysqli->prepare("SELECT email,password,id FROM userregistration WHERE (em
              $uemail=$_SESSION['login'];
 $ip=$_SERVER['REMOTE_ADDR'];
 $geopluginURL='http://www.geoplugin.net/php.gp?ip='.$ip;
-$addrDetailsArr = unserialize(file_get_contents($geopluginURL));
-$city = $addrDetailsArr['geoplugin_city'];
-$country = $addrDetailsArr['geoplugin_countryName'];
+$response = @file_get_contents($geopluginURL);
+
+if($response !== false){
+    $addrDetailsArr = unserialize($response);
+    $city = $addrDetailsArr['geoplugin_city'] ?? 'Unknown';
+    $country = $addrDetailsArr['geoplugin_countryName'] ?? 'Unknown';
+} else {
+    $city = 'Unknown';
+    $country = 'Unknown';
+}
 $log="insert into userLog(userId,userEmail,userIp,city,country) values('$uid','$uemail','$ip','$city','$country')";
 $mysqli->query($log);
 if($log)
