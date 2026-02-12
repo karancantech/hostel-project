@@ -11,7 +11,7 @@ $gender=$_POST['gender'];
 $contactno=$_POST['contact'];
 $emailid=$_POST['email'];
 $password=$_POST['password'];
-	$result ="SELECT count(*) FROM userRegistration WHERE email=? || regNo=?";
+	$result ="SELECT count(*) FROM userregistration WHERE email=? || regNo=?";
 		$stmt = $mysqli->prepare($result);
 		$stmt->bind_param('ss',$email,$regno);
 		$stmt->execute();
