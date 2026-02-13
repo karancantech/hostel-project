@@ -1,8 +1,8 @@
 <?php
-$dbuser = "mysql";
-$dbpass = "fYtnhTxyk2uoNurJU00hCCiOzqfNjDPHcyJaAKbsB9INqSjd9YwQhdEJUleb9kEr";
-$host = "mc0wco404s4wwck44osgkwko";  // MySQL container name
-$db = "hostel";
+$dbuser = getenv('DB_USER');
+$dbpass = getenv('DB_PASSWORD');
+$host   = getenv('DB_HOST');
+$db     = getenv('DB_DATABASE');
 
 $mysqli = new mysqli($host, $dbuser, $dbpass, $db);
 
